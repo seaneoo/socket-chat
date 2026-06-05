@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "chat"
 
-include("server", "client")
+include("core", "server", "client")
