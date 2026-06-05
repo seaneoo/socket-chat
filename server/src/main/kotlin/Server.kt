@@ -29,12 +29,16 @@ class Server {
         client.socket.use { socket ->
             println("Client connected ${socket.inetAddress.hostAddress} (ID: ${client.id}")
             client.readUsername()
+            broadcast(client, "Connected")
+
             while (true) {
                 val message = client.read() ?: break
                 println("[${client.id}] $message")
                 broadcast(client, message)
             }
+
             println("Client disconnected (ID: ${client.id})")
+            broadcast(client, "Disconnected")
             clients.remove(client)
         }
     }
