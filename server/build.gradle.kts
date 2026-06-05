@@ -2,4 +2,6 @@ plugins {
     alias(libs.plugins.kotlin.jvm)
 }
 
-dependencies {}
+dependencies {
+    implementation(project(":core"))
+}
